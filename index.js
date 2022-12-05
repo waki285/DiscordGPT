@@ -26,8 +26,7 @@ client.on(Events.ClientReady, () => {
     },
     {
       type: ApplicationCommandType.Message,
-      name: "Ask ChatGPT",
-      channel
+      name: "Ask ChatGPT"
     }
   ])
 });
@@ -39,7 +38,7 @@ client.on(Events.MessageCreate, async (message) => {
     if (message.content === "clear") {
 
     }
-    const thinking = await message.channel.send("Thinking...");
+    const thinking = await message.reply("Thinking...");
     const response = await chatgpt.ask(message.content);
     thinking.edit(response);
   }
